@@ -68,9 +68,9 @@ body {
    Header y Navbar
    =============================================== */
 header {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Fondo blanco */
     padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Eliminada la sombra para camuflar mejor */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -85,6 +85,7 @@ header {
     list-style: none;
     display: flex;
     gap: 40px;
+    align-items: center; /* Alinea verticalmente los elementos */
 }
 
 .navbar a {
@@ -94,6 +95,8 @@ header {
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease;
+    padding: 10px 15px; /* Aumentado el padding para mayor área clicable */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
 }
 
 .navbar a::after {
@@ -101,7 +104,7 @@ header {
     display: block;
     width: 0;
     height: 2px;
-    background: #0071e3; /* Azul característico de Apple */
+    background: #0071e3; /* Azul característico */
     transition: width .3s;
 }
 
@@ -112,6 +115,14 @@ header {
 .navbar a:hover::after {
     width: 100%;
 }
+
+/* Estilo para el enlace activo */
+.navbar a.active {
+    background-color: #0071e3; /* Fondo azul para el enlace activo */
+    color: #ffffff; /* Texto blanco para contraste */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
 
 /* ==============================================
    Sección Hero
@@ -499,8 +510,51 @@ footer {
 }
 
 /* ==============================================
-   Sección del Carrito (Finalizar Compra)
+   Estilos para Botones Específicos en el Carrito de Compras
    =============================================== */
+
+/* Botón Eliminar */
+.btn-eliminar {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 10px; /* Espacio a la izquierda */
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Botón Finalizar Compra */
+.btn-finalizar {
+    background-color: #28a745; /* Verde para finalizar */
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-finalizar:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+/* ==============================================
+   Estilos para la Sección Carrito de Compras
+   =============================================== */
+
 .carrito-section {
     padding: 60px 20px;
     background-color: #f9f9f9;
@@ -518,119 +572,42 @@ footer {
     font-size: 32px;
 }
 
-.facturacion-card {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    margin-bottom: 40px;
-}
-
-.facturacion-card h3 {
-    font-size: 24px;
+.carrito-section table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 20px;
-    color: #0071e3;
 }
 
-.facturacion-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.facturacion-info {
-    flex: 1;
-    min-width: 250px;
-}
-
-.facturacion-info h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.facturacion-info ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-.facturacion-info ul li {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.facturacion-info p {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.facturacion-metodo {
-    flex: 1;
-    min-width: 250px;
-}
-
-.facturacion-metodo h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.facturacion-metodo form {
-    display: flex;
-    flex-direction: column;
-}
-
-.facturacion-metodo label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.facturacion-metodo input[type="radio"] {
-    margin-right: 10px;
-}
-
-#tarjeta-pago {
-    display: none;
-    margin-top: 40px;
-}
-
-#card-form {
-    display: none;
-    margin-top: 20px;
-}
-
-#payment-details-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#payment-details-form div {
-    width: 100%;
-    max-width: 400px;
-}
-
-#payment-details-form label {
-    font-size: 16px;
-    margin-bottom: 5px;
-    display: block;
+.carrito-section th, 
+.carrito-section td {
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #dddddd;
 }
 
-#payment-details-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #dddddd;
+.carrito-section th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+.carrito-section tr:hover {
+    background-color: #f9f9f9;
+}
+
+.carrito-section a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #ffffff;
+    text-decoration: none;
     border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-#payment-details-form button {
-    width: 100%;
-    max-width: 400px;
+.carrito-section a.btn:hover {
+    background-color: #0056b3;
 }
+
 
 /* ==============================================
    Barra de Búsqueda
@@ -1054,4 +1031,594 @@ footer {
 #register-form button {
     width: 100%;
     max-width: 400px;
+}
+/* ==============================================
+   Estilos para la Página de Clientes (clientes.php)
+   =============================================== */
+
+/* Sección de Compras */
+.carrito-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.carrito-section h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Tabla de Compras */
+.carrito-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.carrito-section th, 
+.carrito-section td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.carrito-section th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+.carrito-section tr:hover {
+    background-color: #f9f9f9;
+}
+
+.carrito-section a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-section a.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ==============================================
+   Estilos para la Página de Detalles de Compra (detalles_compra.php)
+   =============================================== */
+
+/* Tarjeta de Facturación */
+.facturacion-card {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.facturacion-card h3 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.facturacion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.facturacion-info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.facturacion-info ul li {
+    margin-bottom: 8px;
+    color: #555555;
+    font-size: 16px;
+}
+
+.facturacion-info h4 {
+    margin-top: 15px;
+    color: #333333;
+    font-size: 18px;
+}
+
+.facturacion-info p {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Botón de Volver */
+.facturacion-card a.btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.facturacion-card a.btn:hover {
+    background-color: #1e7e34;
+}
+
+/* ==============================================
+   Estilos Generales para Tablas
+   =============================================== */
+
+/* Tablas Generales */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, 
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ==============================================
+   Estilos para Cartas de Facturación y Compras
+   =============================================== */
+
+/* Facturacion Card */
+.facturacion-card, .register-section, .carrito-section {
+    background-color: #ffffff;
+}
+
+.facturacion-card h3, 
+.register-section h2, 
+.carrito-section h2 {
+    color: #333333;
+}
+
+.facturacion-card p, 
+.register-section p, 
+.carrito-section p {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ==============================================
+   Animaciones
+   =============================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================================
+   Responsive Design
+   =============================================== */
+
+@media (max-width: 768px) {
+    .facturacion-content {
+        flex-direction: column;
+    }
+
+    .carrito-section table, 
+    .facturacion-card table {
+        font-size: 14px;
+    }
+
+    .carrito-section th, 
+    .carrito-section td,
+    .facturacion-card th,
+    .facturacion-card td {
+        padding: 10px 12px;
+    }
+
+    .carrito-section a.btn, 
+    .facturacion-card a.btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* ==============================================
+   Estilos para Formularios (Registro y Pago)
+   =============================================== */
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #333333;
+    font-size: 16px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="radio"],
+form textarea {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+form button[type="submit"],
+.btn {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+form button[type="submit"]:hover,
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Checkbox Label */
+.register-section label[for="registro_admin"] {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* ==============================================
+   Estilos para Mapas y Medios Embebidos
+   =============================================== */
+
+.map-container iframe {
+    border-radius: 10px;
+}
+
+/* ==============================================
+   Estilos para Buttons
+   =============================================== */
+
+/* Botones */
+.btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/* ==============================================
+   Estilos para la Página de Administrador (administrador.php)
+   =============================================== */
+
+/* Dashboard de Administrador */
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.admin-dashboard h2 {
+    color: #333333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.admin-dashboard .dashboard-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-dashboard .dashboard-buttons a.btn {
+    width: 200px;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #007BFF;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.admin-dashboard .dashboard-buttons a.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ==============================================
+   Estilos para la Página de Administrar Productos (administrar_productos.php)
+   =============================================== */
+
+/* Sección de Administración de Productos */
+.admin-productos {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.admin-productos h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Formulario de Agregar Producto */
+.admin-productos .agregar-form {
+    margin-bottom: 40px;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.admin-productos .agregar-form h3 {
+    margin-bottom: 20px;
+    color: #333333;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Campos de Formulario */
+.admin-productos form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.admin-productos form label {
+    margin-bottom: 5px;
+    color: #333333;
+    font-size: 16px;
+}
+
+.admin-productos form input[type="text"],
+.admin-productos form input[type="number"],
+.admin-productos form textarea {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Tabla de Productos */
+.admin-productos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-productos th, 
+.admin-productos td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.admin-productos th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+.admin-productos tr:hover {
+    background-color: #f9f9f9;
+}
+
+.admin-productos a.btn {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.admin-productos a.btn:hover {
+    background-color: #1e7e34;
+}
+
+.admin-productos .btn-editar {
+    background-color: #ffc107;
+}
+
+.admin-productos .btn-editar:hover {
+    background-color: #e0a800;
+}
+
+.admin-productos .btn-eliminar {
+    background-color: #dc3545;
+}
+
+.admin-productos .btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+/* Modal para Editar Producto */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo */
+    z-index: 1; /* Sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilita scroll si es necesario */
+    background-color: rgba(0,0,0,0.4); /* Negro con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% desde arriba y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Ancho del modal */
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+/* ==============================================
+   Estilos para la Factura en detalles_compra.php
+   =============================================== */
+
+.facturacion-card {
+    background-color: #ffffff;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif; /* Fuente más clásica */
+}
+
+.facturacion-card h3 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-bottom: 2px solid #0071e3;
+    padding-bottom: 10px;
+}
+
+.facturacion-info {
+    margin-bottom: 30px;
+}
+
+.facturacion-info h4 {
+    color: #0071e3;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.facturacion-info p, .facturacion-info ul {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.facturacion-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.facturacion-info ul li {
+    margin-bottom: 8px;
+}
+
+.facturacion-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.facturacion-info table th, 
+.facturacion-info table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.facturacion-info table th {
+    background-color: #0071e3;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.facturacion-info table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.qr-descargar {
+    text-align: right;
+}
+
+.qr-descargar p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+.qr-descargar #qrcode-descargar {
+    display: inline-block;
 }
